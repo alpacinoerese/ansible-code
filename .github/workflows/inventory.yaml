@@ -12,12 +12,12 @@ jobs:
 
       - name: Create inventory directory
         run: |
-          sudo -u shruti mkdir -p /home/shruti/ansible/
-          sudo chown -R shruti:shruti /home/shruti/ansible
+          sudo -u al mkdir -p /home/al/ansible/
+          sudo chown -R al:al /home/al/ansible
 
       - name: Generate inventory.yaml
         run: |
-          sudo -u shruti bash -c 'cat > /home/shruti/ansible/inventory.yaml' << 'EOF'
+          sudo -u al bash -c 'cat > /home/al/ansible/inventory.yaml' << 'EOF'
           ---
           all:
             children:
@@ -25,12 +25,12 @@ jobs:
                 hosts:
                   web01:
                     ansible_host: 10.128.0.4
-                    ansible_user: shruti
+                    ansible_user: al
                     
 
               databases:
                 hosts:
                   db01:
                     ansible_host: 10.204.0.2
-                    ansible_user: shruti
+                    ansible_user: al
                     db_version: 14
